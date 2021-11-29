@@ -1,0 +1,3 @@
+#if( $invocation_exception )
+    An error occured.
+#end

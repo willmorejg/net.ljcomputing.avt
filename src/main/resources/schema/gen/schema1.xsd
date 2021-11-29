@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+    
+  <xs:element name="bookStore">
+        
+    <xs:complexType>
+            
+      <xs:sequence>
+                
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="book" nillable="true" type="book"/>
+              
+      </xs:sequence>
+          
+    </xs:complexType>
+      
+  </xs:element>
+    
+  <xs:complexType name="book">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[<p>Java class for book complex type.
+<p>The following schema fragment specifies the expected content contained within this class.
+<pre>
+&lt;complexType name="book"&gt;
+  &lt;complexContent&gt;
+    &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+      &lt;sequence&gt;
+        &lt;element name="isbn" type="{}ISBN-type"/&gt;
+        &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+        &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
+        &lt;element name="available" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+        &lt;element name="quantity" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+      &lt;/sequence&gt;
+    &lt;/restriction&gt;
+  &lt;/complexContent&gt;
+&lt;/complexType&gt;
+</pre>]]>
+      </xs:documentation>
+    </xs:annotation>
+        
+    <xs:sequence>
+            
+      <xs:element name="isbn" type="xs:string"/>
+            
+      <xs:element name="title" type="xs:string"/>
+            
+      <xs:element default="0.00" name="price" type="xs:double"/>
+            
+      <xs:element default="0" name="available" type="xs:int"/>
+            
+      <xs:element default="0" name="quantity" type="xs:int"/>
+          
+    </xs:sequence>
+      
+  </xs:complexType>
+  
+</xs:schema>

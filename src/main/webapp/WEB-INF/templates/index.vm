@@ -1,0 +1,25 @@
+#set( $layout = "Default.vm" )
+        <center>
+            <table class="gridtable">
+                <thead>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Book Title</th>
+                        <th>Number Available</th>
+                    </tr>
+                </thead>
+                <tbody>
+        $log.debug('line [{}]', '15')
+        #foreach( $product in $products )
+                    <tr name="product">
+                        <td>$product.isbn</td>
+        $log.debug('line [{}]: {}', '18', $product)
+                        <td id="product_$foreach.count">$product.title</td>
+                        <td>$product.available</td>
+                    </tr>
+        #end
+        $log.debug('line [{}]', '22')
+                </tbody>
+            </table>
+            <br/>
+        </center>

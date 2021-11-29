@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  deicer
+  %%
+  Copyright (C) 2021 James G. Willmore
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+
+<!DOCTYPE xml>
+<configuration>
+    <property name="catalina.home" value="target" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{dd MMM yyyy HH:mm:ss.SSS} %-4relative [%thread] %-5level %logger{35} %L : %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <timestamp key="byDay" datePattern="yyyyMMdd'T'HHmmss" />
+
+    <appender name="FILE"
+        class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${user.home}/logs/avt-log-${byDay}.txt </file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${user.home}/logs/avt.%d{yyyy-MM-dd}.%i.txt
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 100MB -->
+                <maxFileSize>5MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>3</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%date{dd MMM yyyy HH:mm:ss.SSS} %-4relative [%thread] %-5level %logger{35} %L : %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!--
+    <appender name="EMAIL" class="ch.qos.logback.classic.net.SMTPAppender">
+        <smtpHost>localhost</smtpHost>
+        <to>jim@localhost</to>
+        <from>nobody@localhost</from>
+        <subject>avt: log from %logger{20} logger</subject>
+        <asynchronousSending>false</asynchronousSending>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%date{dd MMM yyyy HH:mm:ss.SSS} %-4relative [%thread] %-5level %logger{35} %L : %msg%n
+            </pattern>
+        </layout>
+    </appender>
+    -->
+    
+    <logger name="net.ljcomputing" additivity="false" level="DEBUG">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
+        <!--
+        <appender-ref ref="EMAIL" />
+        -->
+    </logger>
+
+    <root value="DEBUG">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+        <!--
+        <appender-ref ref="EMAIL" />
+        -->
+    </root>
+</configuration>

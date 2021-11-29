@@ -1,0 +1,10 @@
+<html>
+    <head>
+        <title>$!title</title>
+        <link rel="stylesheet" href="css/index.css" />
+    </head>
+    <body>
+        <h1>$!title</title>
+        $screen_content
+    </body>
+</html>
