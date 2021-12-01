@@ -6,6 +6,7 @@ import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.nio.file.Path;
 import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -53,6 +54,8 @@ import org.xml.sax.SAXException;
 /** Class that executes unit test. */
 public class AppTest {
   private static final Logger log = LoggerFactory.getLogger(AppTest.class);
+  private static final String storeXml =
+      Path.of(System.getProperty("user.dir"), "out", "store.xml").toString();
 
   @Test
   public void createBookStoreList() {
@@ -63,10 +66,10 @@ public class AppTest {
       final Marshaller marshallObj = context.createMarshaller();
       marshallObj.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
       final BookStore store = new BookStore();
-      final BookService bookService = new BookServiceImpl();
+      final BookService bookService = new MockBookServiceImpl();
       final List<Book> products = bookService.getAllBooks();
       store.getBook().addAll(products);
-      marshallObj.marshal(store, new FileOutputStream("./store.xml"));
+      marshallObj.marshal(store, new FileOutputStream(storeXml));
     } catch (Exception e) {
       e.printStackTrace();
       result = false;
@@ -87,7 +90,7 @@ public class AppTest {
     velocityEngine.setProperty("file.resource.loader.path", "src/main/webapp/WEB-INF/templates");
 
     final VelocityContext context = new VelocityContext();
-    final BookService bookService = new MockBookServiceImpl();
+    final BookService bookService = new BookServiceImpl();
     final List<Book> products = bookService.getAllBooks();
     log.debug("products: {}", products);
     context.put("products", products);

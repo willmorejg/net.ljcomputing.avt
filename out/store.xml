@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bookStore>
+    <book>
+        <isbn>0-09-194321-7</isbn>
+        <title>The Curious Incident of the Dog in the Night-Time</title>
+        <price>84.77</price>
+        <available>41</available>
+        <quantity>0</quantity>
+        <author>
+            <name>Ms. Miguel Collier</name>
+        </author>
+        <publisher>
+            <name>Marks-Runolfsdottir</name>
+            <mailingAddress>
+                <address1>541 Randell Burgs</address1>
+                <city>Kuhlmanside</city>
+                <state>IL</state>
+                <zipCode>99357</zipCode>
+            </mailingAddress>
+        </publisher>
+    </book>
+    <book>
+        <isbn>0-99910-730-6</isbn>
+        <title>Blue Remembered Earth</title>
+        <price>84.86</price>
+        <available>25</available>
+        <quantity>0</quantity>
+        <author>
+            <name>Celeste Nitzsche</name>
+        </author>
+        <publisher>
+            <name>Lockman, Heidenreich and Yundt</name>
+            <mailingAddress>
+                <address1>465 Lou Bypass</address1>
+                <city>Barbarhaven</city>
+                <state>GA</state>
+                <zipCode>21846-3372</zipCode>
+            </mailingAddress>
+        </publisher>
+    </book>
+    <book>
+        <isbn>6-87-566231-8</isbn>
+        <title>Consider the Lilies</title>
+        <price>75.43</price>
+        <available>8</available>
+        <quantity>0</quantity>
+        <author>
+            <name>Carrol Walker</name>
+        </author>
+        <publisher>
+            <name>Lynch-Ruecker</name>
+            <mailingAddress>
+                <address1>4759 Leffler Prairie</address1>
+                <city>East Rodney</city>
+                <state>MO</state>
+                <zipCode>68423-3685</zipCode>
+            </mailingAddress>
+        </publisher>
+    </book>
+    <book>
+        <isbn>9-05-200342-1</isbn>
+        <title>Tender Is the Night</title>
+        <price>41.72</price>
+        <available>44</available>
+        <quantity>0</quantity>
+        <author>
+            <name>Tilda Barrows</name>
+        </author>
+        <publisher>
+            <name>Champlin, Lind and Stehr</name>
+            <mailingAddress>
+                <address1>1521 Beer Prairie</address1>
+                <city>Yostfurt</city>
+                <state>NJ</state>
+                <zipCode>80265-3150</zipCode>
+            </mailingAddress>
+        </publisher>
+    </book>
+    <book>
+        <isbn>7-21-406518-7</isbn>
+        <title>The Lathe of Heaven</title>
+        <price>0.63</price>
+        <available>97</available>
+        <quantity>0</quantity>
+        <author>
+            <name>Camellia Kulas IV</name>
+        </author>
+        <publisher>
+            <name>Senger, Bashirian and Jakubowski</name>
+            <mailingAddress>
+                <address1>5533 Carter Highway</address1>
+                <city>New Norris</city>
+                <state>WV</state>
+                <zipCode>52925</zipCode>
+            </mailingAddress>
+        </publisher>
+    </book>
+</bookStore>

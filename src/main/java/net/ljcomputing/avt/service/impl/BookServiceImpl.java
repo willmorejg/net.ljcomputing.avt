@@ -1,6 +1,7 @@
 package net.ljcomputing.avt.service.impl;
 
 import java.io.File;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.JAXBContext;
@@ -35,6 +36,8 @@ import net.ljcomputing.avt.service.BookService;
  * @author James G. Willmore
  */
 public class BookServiceImpl implements BookService {
+  private static final String storeXml =
+      Path.of(System.getProperty("user.dir"), "out", "store.xml").toString();
 
   /** Instantiates a new abstract faker mock - should remove for production. */
   public BookServiceImpl() {
@@ -46,7 +49,7 @@ public class BookServiceImpl implements BookService {
     List<Book> result = new ArrayList<>();
 
     try {
-      File file = new File("./store.xml");
+      File file = new File(storeXml);
       JAXBContext context = JAXBContext.newInstance(BookStore.class);
       Unmarshaller unmarshallerObj = context.createUnmarshaller();
       BookStore store = (BookStore) unmarshallerObj.unmarshal(file);

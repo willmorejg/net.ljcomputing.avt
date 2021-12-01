@@ -15,6 +15,33 @@
       
   </xs:element>
     
+  <xs:complexType name="author">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[<p>Java class for author complex type.
+<p>The following schema fragment specifies the expected content contained within this class.
+<pre>
+&lt;complexType name="author"&gt;
+  &lt;complexContent&gt;
+    &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+      &lt;sequence&gt;
+        &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+      &lt;/sequence&gt;
+    &lt;/restriction&gt;
+  &lt;/complexContent&gt;
+&lt;/complexType&gt;
+</pre>]]>
+      </xs:documentation>
+    </xs:annotation>
+        
+    <xs:sequence>
+            
+      <xs:element name="name" type="xs:string"/>
+          
+    </xs:sequence>
+      
+  </xs:complexType>
+    
   <xs:complexType name="book">
     <xs:annotation>
       <xs:documentation>
@@ -30,6 +57,8 @@
         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
         &lt;element name="available" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
         &lt;element name="quantity" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+        &lt;element name="author" type="{}author" maxOccurs="unbounded" minOccurs="0"/&gt;
+        &lt;element name="publisher" type="{}publisher" maxOccurs="unbounded" minOccurs="0"/&gt;
       &lt;/sequence&gt;
     &lt;/restriction&gt;
   &lt;/complexContent&gt;
@@ -49,6 +78,79 @@
       <xs:element default="0" name="available" type="xs:int"/>
             
       <xs:element default="0" name="quantity" type="xs:int"/>
+            
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="author" nillable="true" type="author"/>
+            
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="publisher" nillable="true" type="publisher"/>
+          
+    </xs:sequence>
+      
+  </xs:complexType>
+    
+  <xs:complexType name="publisher">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[<p>Java class for publisher complex type.
+<p>The following schema fragment specifies the expected content contained within this class.
+<pre>
+&lt;complexType name="publisher"&gt;
+  &lt;complexContent&gt;
+    &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+      &lt;sequence&gt;
+        &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+        &lt;element name="mailingAddress" type="{}mailingAddress" minOccurs="0"/&gt;
+      &lt;/sequence&gt;
+    &lt;/restriction&gt;
+  &lt;/complexContent&gt;
+&lt;/complexType&gt;
+</pre>]]>
+      </xs:documentation>
+    </xs:annotation>
+        
+    <xs:sequence>
+            
+      <xs:element name="name" type="xs:string"/>
+            
+      <xs:element minOccurs="0" name="mailingAddress" type="mailingAddress"/>
+          
+    </xs:sequence>
+      
+  </xs:complexType>
+    
+  <xs:complexType name="mailingAddress">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[<p>Java class for mailingAddress complex type.
+<p>The following schema fragment specifies the expected content contained within this class.
+<pre>
+&lt;complexType name="mailingAddress"&gt;
+  &lt;complexContent&gt;
+    &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+      &lt;sequence&gt;
+        &lt;element name="address1" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+        &lt;element name="address2" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+        &lt;element name="city" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+        &lt;element name="state" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+        &lt;element name="zipCode" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+      &lt;/sequence&gt;
+    &lt;/restriction&gt;
+  &lt;/complexContent&gt;
+&lt;/complexType&gt;
+</pre>]]>
+      </xs:documentation>
+    </xs:annotation>
+        
+    <xs:sequence>
+            
+      <xs:element name="address1" type="xs:string"/>
+            
+      <xs:element name="address2" type="xs:string"/>
+            
+      <xs:element name="city" type="xs:string"/>
+            
+      <xs:element name="state" type="xs:string"/>
+            
+      <xs:element name="zipCode" type="xs:string"/>
           
     </xs:sequence>
       
