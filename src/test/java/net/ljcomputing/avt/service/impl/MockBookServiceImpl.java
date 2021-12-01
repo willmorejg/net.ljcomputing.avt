@@ -6,7 +6,10 @@ import com.github.javafaker.service.RandomService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import net.ljcomputing.avt.domain.Author;
 import net.ljcomputing.avt.domain.Book;
+import net.ljcomputing.avt.domain.MailingAddress;
+import net.ljcomputing.avt.domain.Publisher;
 import net.ljcomputing.avt.service.BookService;
 
 /*-
@@ -70,6 +73,18 @@ public class MockBookServiceImpl implements BookService {
       book.setIsbn(isbn);
       book.setPrice(price);
       book.setAvailable(available);
+      final Author author = new Author();
+      author.setName(faker.name().name());
+      book.getAuthor().add(author);
+      final Publisher publisher = new Publisher();
+      publisher.setName(faker.company().name());
+      final MailingAddress mailingAddress = new MailingAddress();
+      mailingAddress.setAddress1(faker.address().streetAddress());
+      mailingAddress.setCity(faker.address().cityName());
+      mailingAddress.setState(faker.address().stateAbbr());
+      mailingAddress.setZipCode(faker.address().zipCode());
+      publisher.setMailingAddress(mailingAddress);
+      book.getPublisher().add(publisher);
       result.add(book);
     }
 

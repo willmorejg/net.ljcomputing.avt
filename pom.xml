@@ -450,7 +450,7 @@ mvn com.coveo:fmt-maven-plugin:format
           <xmlOutput>false</xmlOutput>
           <outputDirectory>${project.build.directory}/spotbugs</outputDirectory>
           <spotbugsXmlOutputDirectory>${project.build.directory}/spotbugs</spotbugsXmlOutputDirectory>
-          <excludeFilterFile>spotbugs-exclude.xml</excludeFilterFile>
+          <excludeFilterFile>resources/spotbugs-exclude.xml</excludeFilterFile>
         </configuration>
         <executions>
           <execution>

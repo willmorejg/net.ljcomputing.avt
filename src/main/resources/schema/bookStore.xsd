@@ -5,6 +5,26 @@
             <xs:pattern value="\d{1}-\d{5}-\d{3}-\d{1}|\d{1}-\d{3}-\d{5}-\d{1}|\d{1}-\d{2}-\d{6}-\d{1}"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="author">
+        <xs:sequence>
+            <xs:element type="xs:string" name="name"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="mailingAddress">
+        <xs:sequence>
+            <xs:element type="xs:string" name="address1"/>
+            <xs:element type="xs:string" name="address2"/>
+            <xs:element type="xs:string" name="city"/>
+            <xs:element type="xs:string" name="state"/>
+            <xs:element type="xs:string" name="zipCode"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="publisher">
+        <xs:sequence>
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="mailingAddress" name="mailingAddress" maxOccurs="1" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="book">
         <xs:sequence>
             <xs:element type="ISBN-type" name="isbn"/>
@@ -12,6 +32,8 @@
             <xs:element type="xs:double" name="price" default="0.00"/>
             <xs:element type="xs:int" name="available" default="0"/>
             <xs:element type="xs:int" name="quantity" default="0"/>
+            <xs:element name="author" type="author" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element name="publisher" type="publisher" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="bookStore">
